@@ -13,17 +13,30 @@
 
     <script type="text/babel">
        class Greeting extends React.Component {
+         constructor (props){
+           super(props);
+         this.state ={day:3
+         }
+       }
          render() {
            return (
              <div>
-               <h1>Hello {this.props.name}!</h1>
+               <h1>Welcome!</h1>
+               <h2>my name is {this.props.name}</h2>
+               <p>I been doing Component for {this.state.day} days</p>
+              <p>I Started on: {this.props.date.toLocaleDateString()}</p>
              </div>
            );
          }
        }
 
+       const info = {
+         date: new Date()
+       }
+
        ReactDOM.render(
-        <Greeting name="Brian"/>,document.getElementById('app')
+        <Greeting name="Brian"
+        date={info.date} />,document.getElementById('app')
        );
     </script>
   </body>
